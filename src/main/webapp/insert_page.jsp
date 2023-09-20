@@ -1,0 +1,51 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: bac
+  Date: 17/09/2023
+  Time: 22:49
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+    <%@include file="cdn.jsp"%>
+</head>
+<body>
+<%@include file="navbar.jsp"%>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="fs-3 text-center">Add Account</p>
+                    <form action="insert" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Account ID</label> <input
+                                type="text" class="form-control" name="id">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label> <input
+                                type="email" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label> <input type="text"
+                                                                             class="form-control" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label> <input
+                                type="password" class="form-control" name="password">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label> <input type="text"
+                                                                           class="form-control" name="phone">
+                        </div>
+                        <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
