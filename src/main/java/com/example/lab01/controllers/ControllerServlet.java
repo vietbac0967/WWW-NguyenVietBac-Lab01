@@ -81,7 +81,6 @@ public class ControllerServlet extends HttpServlet {
                 req.setAttribute("status", "failed");
                 requestDispatcher = req.getRequestDispatcher("index.jsp");
             }
-
             if (requestDispatcher != null) {
                 requestDispatcher.forward(req, resp);
             }

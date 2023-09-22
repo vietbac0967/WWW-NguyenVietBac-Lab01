@@ -13,9 +13,14 @@
 <html>
 <head>
     <title>Title</title>
-    <%@include file="cdn.jsp"%>
+    <%@include file="cdn.jsp" %>
 </head>
 <body>
+<input type="hidden" id="status" value="<%=request.getAttribute("update")%>">
+<%
+    System.out.println(request.getAttribute("update"));
+%>
+<%@include file="navbar.jsp"%>
 <div class="container p-4">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -64,5 +69,22 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    let status = document.getElementById("status").value;
+    if (status === "complete") {
+        swal({
+            title: "Good job!",
+            text: "Update success!",
+            icon: "success",
+        })
+    }
+    if(status === "uncompleted"){
+        swal({
+            title: "Update",
+            icon: "error",
+        })
+    }
+</script>
 </body>
 </html>

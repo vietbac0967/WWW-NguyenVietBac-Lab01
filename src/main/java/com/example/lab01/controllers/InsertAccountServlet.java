@@ -15,6 +15,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -52,6 +53,8 @@ public class InsertAccountServlet extends HttpServlet {
         Role role =  user.orElse(null);
         grantAccess.setRole(role);
         grantAccessRepository.insertGrantAccess(grantAccess);
+        HttpSession session = req.getSession();
+        req.setAttribute("status","success");
         requestDispatcher = req.getRequestDispatcher("insert_page.jsp");
         requestDispatcher.forward(req,resp);
     }

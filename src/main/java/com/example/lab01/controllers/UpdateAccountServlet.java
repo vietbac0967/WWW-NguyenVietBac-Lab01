@@ -30,11 +30,11 @@ public class UpdateAccountServlet extends HttpServlet {
         HttpSession session = req.getSession();
         RequestDispatcher requestDispatcher = null;
         if(rs){
-            session.setAttribute("success","Account update Complete");
-            requestDispatcher = req.getRequestDispatcher("dashboard.jsp");
+            req.setAttribute("update","complete");
         }else {
-            requestDispatcher = req.getRequestDispatcher("update_page.jsp");
+            req.setAttribute("update","uncompleted");
         }
+        requestDispatcher = req.getRequestDispatcher("update_page.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

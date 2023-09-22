@@ -9,10 +9,12 @@
 <html>
 <head>
     <title>Title</title>
-    <%@include file="cdn.jsp"%>
+    <%@include file="cdn.jsp" %>
 </head>
 <body>
-<%@include file="navbar.jsp"%>
+<input type="hidden" id="status"
+       value="<%= request.getAttribute("status")%>">
+<%@include file="navbar.jsp" %>
 <div class="container p-4">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -30,7 +32,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Full Name</label> <input type="text"
-                                                                             class="form-control" name="name">
+                                                                               class="form-control" name="name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label> <input
@@ -47,5 +49,16 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    const status = document.getElementById("status").value;
+    if (status === "success") {
+        swal({
+            title: "Good job!",
+            text: "Insert success!",
+            icon: "success",
+        })
+    }
+</script>
 </body>
 </html>
